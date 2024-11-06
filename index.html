@@ -1,440 +1,116 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Antonio's Page</title>
-<style type = "text/css"> 
-tab1 {padding-left: 12.5em; }
-tab2 {padding-left: 37em; }
-* {
-     /*font-family: sans-serif;*/
-    }
-</style>
-<style type="text/css">
-* {
-margin:0;
-padding:0;
-}
-html {
-overflow-y:scroll; /*keep scrollbar position present in FF at all times*/
-height: 100%;
-background-color: ;/* #white;*/
-background-image: ; /* url("fib.jpg") #ffc38b;*/
-
-}
-
-a {
-  color: #638;
-}
-
-a:visited {
-  color: #638;
-}
-
-/*------------center the website---------------------*/
-#wrap {
-position:relative;
-background: #white; /* #white; #fff5da #FFFFFF #F5ECCE  #87AFC7 */
-width:1025px; /* width:960px; */
-height:115%;
-min-height:100%;
-margin:0 auto;
-border:0px solid; /* border:1px solid; */
-border-color:#f00 #000 #000 #000;
-}
-
-blockquote {
-    display: block;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 80px;
-    margin-right: 80px;
-}
-
-
-
-table {
-    border-style: hidden;
-}
-
-li{
-  margin: 10px 0;
-}
-
-#friendly_1 {
-position:absolute;
-left:190px;
-top:370px;
-width:80px;
-}
-#text {
-position:absolute;
-left:19px;
-top:270px;
-width:80px;
-}
-#footer {
-   width:960px;
-   margin:0 auto;
-}
-#footer p {
-   line-height:50px; /* must be same as the amount of padding applied to the bottom of the body so text will center vertically */
-   text-align:left; /* align right, left or center */
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antonio Khalil Moretti</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<div id="wrap">
-
 <body>
 
+    <header>
+        <div class="header-content">
+            <h1>Antonio Khalil Moretti</h1>
+        </div>
+        <img src="images/antonio.jpg" alt="Dr. Antonio Moretti" class="profile-photo">
+    </header>
 
-<table border=0 cellspacing="30" cellpadding="5">
+    <section class="contact">
+        <p><strong>Email:</strong> <a href="mailto:antoniomoretti@spelman.edu">antoniomoretti@spelman.edu</a></p>
+        <p><strong>Office:</strong> 218 Tapely Hall</p>
+        <p><strong>Teaching (Fall 2024):</strong> SCIS-475, SCIS-485</p>
+    </section>
 
-<td>
- 
-<IMG src="tony.jpg" height="200" width="200" alt="My Photo"> 
+    <hr>
 
-</td>
-<td>
-<p><big><b><font size="+2" style="padding-right: 1px;">&nbsp;&nbsp;&nbsp;&nbsp; Antonio Khalil Moretti</font></b></big><br><br>
-</td>
-</table>
+    <section>
+        I'm interested in machine learning, approximate inference, and more recently, algorithms for Riemannian geometries. If you're a student and interested in working with me on research, feel free to reach out. 
+        You can find some of my papers on <a href="https://arxiv.org/search/cs?searchtype=author&query=Moretti,+A+K">arXiv</a> or <a href="https://scholar.google.com/citations?user=zOHnboAAAAAJ&hl=en">Google Scholar</a>.
+    </section>
 
-<table border=0 cellspacing=30 cellpadding=30 width=100%>
+    <section>
+        <h2>Biosketch</h2>
+        <p>I'm an Assistant Professor of Computer Science at <a href="https://www.spelman.edu/">Spelman College</a>. 
+            I was a Roman Family Teaching and Research Fellow in the <a href="https://cs.barnard.edu/">Computer Science Department</a> 
+            at <a href="https://barnard.edu/">Barnard College</a>. 
+            I did my PhD in the <a href="https://www.cs.columbia.edu/">Computer Science Department</a> at <a href="https://www.columbia.edu/">Columbia University</a>. 
+            Most of my work has focused on developing new approaches in Bayesian inference, probabilistic models, and machine learning applications in scientific research.</p>
+    </section>
 
-<tr><td>
-<!--
+    <section>
+        <h2>Recent Publications</h2>
+        <ul>
+            <li>
+              <a href="https://openreview.net/attachment?id=29cqyUl2bI&name=pdf">Variational Combinatorial Sequential Monte Carlo for Bayesian Phylogenetics in Hyperbolic Space</a><br>
+              Chen, A., Chlenski, P., Munyuza, Moretti, A., Naesseth, C., Pe'er, I.<br>
+              <em>Under Review</em>, 2024
+            </li>
+            <li>
+              <a href="https://arxiv.org/abs/2410.13879">Mixed Curvature Decision Trees and Random Forests</a><br>
+              Chlenski, P., Chu, Q., Khan, Moretti, A., Pe'er, I.<br>
+              <em>Under Review</em>, 2024
+            </li>
+            <li>
+              <a href="https://openreview.net/pdf?id=pCapRF2vFf">Variational Pseudo Marginal Methods for Jet Reconstruction in Particle Physics</a><br>
+              Yang, H.*, Moretti, A.*, Macaluso, S., Naesseth, C., Chlenski, P., Pe'er, I.<br>
+              <em>Under Review</em>, 2024
+            </li>
+            <li>
+              <a href="https://arxiv.org/abs/2310.13841">Fast Hyperboloid Decision Tree Algorithms</a><br>
+              Chlenski, P., Turok, E., Moretti, A., Pe'er, I.<br>
+              <em>International Conference on Learning Representations</em>, 2024
+            </li>
+            <li>
+              <a href="https://arxiv.org/abs/2106.00075">Variational Combinatorial Sequential Monte Carlo Methods for Bayesian Phylogenetic Inference</a><br>
+              Moretti, A.*, Zhang, L.*, Naesseth, C., Venner, H., Blei, D., Pe'er, I.<br>
+              <em>Uncertainty in Artificial Intelligence</em>, 2021
+            </li>
+          </ul>
+    </section>
 
--->
+    <section>
+        <h2>Courses Taught</h2>
+        <ul>
+            <li><strong>Spelman College (Fall 2024)</strong>
+                <ul>
+                    <li>Developing Accessible User Interfaces</li>
+                    <li>Introduction to Data Science</li>
+                </ul>
+            </li>
+            <li><strong>Barnard College (Spring 2023-2024)</strong>
+                <ul>
+                    <li>Developing Accessible User Interfaces</li>
+                </ul>
+            </li>
+            <li><strong>Barnard College (Fall 2022-2024)</strong>
+                <ul>
+                    <li>Introduction to Computational Thinking and Data Science</li>
+                </ul>
+            </li>
+            <li><strong>Columbia University (Fall 2017, Fall 2021)</strong>
+                <ul>
+                    <li><a href="http://www.cs.columbia.edu/~amoretti/3203/">Discrete Mathematics: Combinatorics and Graph Theory</a></li>
+                </ul>
+            </li>
+            <li><strong>Fordham University (Spring 2016–2018)</strong>
+                <ul>
+                    <li><a href="http://www.cs.columbia.edu/~amoretti/7847s17.html">Machine Learning for Statistics</a></li>
+                </ul>
+            </li>
+            <li><strong>Fordham University (Fall 2017)</strong>
+                <ul>
+                    <li><a href="http://www.cs.columbia.edu/~amoretti/7844.html">Statistical Methods and Computation</a></li>
+                </ul>
+            </li>
+        </ul>
+    </section>
 
-<!--
-
-<font size=4>About Me</font><br><br>
-I am a graduate student in ...<br>
-My research interests are ...<br><br>
-
-<p>
-  <font size=2.5>
-I'm a machine learning researcher currently focusing on approximate inference and it's applications. From 2015-2020 I was PhD student in the <a href="http://www.cs.columbia.edu/" STYLE="text-decoration: none"><font color = "#000000">Computer Science</a> Department at <a href="http://engineering.columbia.edu/" STYLE="text-decoration: none"><font color = "#000000">Columbia</a>. I did my masters in Statistics at the <a href="http://www.cuny.edu/index.html" STYLE="text-decoration:none"><font color = "#000000"> City University of New York</a> and my undergrad at <a href="http://www.cmu.edu/" STYLE="text-decoration: none"><font color = "#000000">Carnegie Mellon</a>. 
-
-</font>
--->
-
-<tr><td>
-  <font size=4>Bio</font><br><br>
-<font size=2.5>
-  I'm a Faculty Fellow in the Computer Science Department at Barnard College. My research is focused on approximate inference and its applications. <br><br> I did my PhD in the <a href="http://www.cs.columbia.edu/" STYLE="text-decoration: none"><font color = "#000000">Computer Science</a> Department at <a href="http://engineering.columbia.edu/" STYLE="text-decoration: none"><font color = "#000000">Columbia</a>, a masters in Statistics at the <a href="http://www.cuny.edu/index.html" STYLE="text-decoration:none"><font color = "#000000"> City University of New York</a> and my undergrad at <a href="http://www.cmu.edu/" STYLE="text-decoration: none"><font color = "#000000">Carnegie Mellon</a>. 
-  </font>
-</td></tr>
-
-<tr><td>
-<font size=4>Research</font><br><br>
-<font size=2.5>
-I've done some work on developing <a href="https://en.wikipedia.org/wiki/Variational_Bayesian_methods" STYLE="text-decoration: none"><font color = "#000000">variational Bayesian methods</a> for spatial statistics and nonlinear dynamics. <a href="Candy_lite.pdf" STYLE="text-decoration: none"><font color = "#000000">Here</a> is an outline of some older topics of interest. <br><br> 
-More broadly I've focused on the intersection of machine learning, computational statistics and artificial intelligence. You can download my CV <a href="AntonioCV.pdf" STYLE="text-decoration: none" width=90%><font color = "#000000">here</a>.
-<br><br>
-I'm also interested in broader points of contact between <a href="https://en.wikipedia.org/wiki/Statistical_mechanics" STYLE="text-decoration: none"><font color = "#000000">statistical mechanics</a>, <a href="https://en.wikipedia.org/wiki/Information_theory" STYLE="text-decoration: none"><font color = "#000000">information theory</a>, <a href="https://en.wikipedia.org/wiki/Neural_coding" STYLE="text-decoration: none"><font color = "#000000">neural coding</a> and computation.
-<br>
-</font>
-</td></tr>
-
-
-<tr><td>
-<font size=4>Highlights</font><br><br>
-<font size=2.5>
-
-
-
-  <table width="100%" align="center" border="0" cellspacing="5" cellpadding="25">
-        <tr>
-      <td width="25%">
-        <!--<img src='figures/primates_phylo.png' width="200" height="136">-->
-        <!--<img src='figures/vcsmc-loglik.png' width="182", height="140">-->
-        <img src='figures/vncsmc.png' width="215", height="160">
-      </td>
-      <td valign="top" width="75%">
-        <p>
-    <a href="https://arxiv.org/abs/2106.00075">
-            <papertitle>Variational Combinatorial Sequential Monte Carlo Methods for Bayesian Phylogenetic Inference</papertitle>
-    </a>
-    <br>
-          <strong>Antonio Khalil Moretti*</strong>,
-          Liyi Zhang*, Christian Naesseth, Hadiah Venner, David Blei, 
-          Itsik Pe'er<br>
-        <em>Uncertainty in Artificial Intelligence, 2021</em><br>
-        <a href="https://arxiv.org/abs/2106.00075">arxiv</a> / 
-        <a href="https://github.com/amoretti86/phylo">code</a>
-        /
-        <a href="http://www.cs.columbia.edu/~amoretti/papers/vcsmc_slides_mlcb.pdf">old slides</a> / 
-        <a href="https://www.youtube.com/watch?v=PZzK6XZUvvQ">talk</a> / 
-        <a href="vcsmc.bib">bibtex</a>
-        </p>
-        <p>Bayesian phylogenetic inference is often conducted via local or sequential search over topologies and branch lengths using algorithms such as random-walk Markov chain Monte Carlo (MCMC) or Combinatorial Sequential Monte Carlo (CSMC). However, when MCMC is used for evolutionary parameter learning, convergence requires long runs with inefficient exploration of the state space. We introduce Variational Combinatorial Sequential Monte Carlo (VCSMC), a powerful framework that establishes variational sequential search to learn distributions over intricate combinatorial structures. We then develop nested CSMC, an efficient proposal distribution for CSMC and prove that nested CSMC is an exact approximation to the (intractable) locally optimal proposal. We use nested CSMC to define a second objective, VNCSMC which yields tighter lower bounds than VCSMC. We show that VCSMC and VNCSMC are computationally efficient and explore higher probability spaces than existing methods on a range of tasks.</p><br>
-      </td>
-    </tr>
-    <tr>
-      <td width="25%">
-        <img src='figures/snr.png' width="180" height="180">
-      </td>
-      <td valign="top" width="75%">
-        <p>
-    <a href="https://arxiv.org/pdf/1909.09734.pdf">
-            <papertitle>Particle Smoothing Variational Objectives</papertitle>
-    </a>
-    <br>
-          <strong>Antonio Khalil Moretti</strong>*,
-          Zizhao Wang*, 
-          Luhuan Wu*,
-          Iddo Drori, 
-          Itsik Pe'er<br>
-        <em>European Conference on Artificial Intelligence, 2020</em><br>
-        <a href="https://arxiv.org/abs/1909.09734">arxiv</a> / 
-        <a href="https://github.com/amoretti86/PSVO">code</a>
-        /
-        <a href="http://www.cs.columbia.edu/~amoretti/papers/psvo_slides.pdf">slides</a> / 
-        <a href="https://youtu.be/TxHIxuakJVE">talk</a> /
-        <a href="psvo_bibtex.txt">bibtex</a>
-        </p>
-        <p>A body of recent work has focused on constructing a variational family of filtered distributions using Sequential Monte Carlo (SMC). Inspired by this work, we introduce Smoothing Variational Objectives (SVO), a novel backward simulation technique defined through a subsampling process. This augments the support of the proposal and boosts particle diversity. SMCs resampling step introduces challenges for standard VAE-style reparameterization due to the Categorical distribution. We prove that introducing bias by dropping this term from the gradient estimate or using Gumbel-Softmax mitigates the adverse effect on the signal-to-noise ratio. SVO consistently outperforms filtered objectives when given fewer Monte Carlo samples on three nonlinear systems of increasing complexity.</p>
-      </td>
-    </tr>
-    <tr>
-      <td width="25%">
-        <img src='figures/rotating singlet.gif' width="200" height="200">
-      </td>
-      <td valign="top" width="75%">
-          <p>
-          <a href="https://arxiv.org/pdf/1811.02459.pdf">
-            <papertitle>Nonlinear Evolution via Spatially-Dependent Linear Dynamics for Electrophysiology and Calcium Data</papertitle>
-          </a>
-          <br>
-          Daniel Hernandez Diaz,
-          <strong>Antonio Khalil Moretti</strong>,
-          Ziqiang Wei, 
-          Shreya Saxena,  
-          John Cunningham, 
-          Liam Paninski<br>
-        <em>Neurons, Behavior, Data analysis, and Theory, 2020</em><br><D-r>
-        <a href="https://arxiv.org/abs/1811.02459">arxiv</a>
-        /
-        <a href="https://github.com/dhernandd/vind">code</a>
-        /
-        <a href="vind_bibtex.txt">bibtex</a>
-        </p>
-        <p>We propose a novel variational inference framework for the explicit modeling of time series, Variational Inference for Nonlinear Dynamics (VIND), that is able to uncover nonlinear observation and transition functions from sequential data. The framework includes a structured approximate posterior, and an algorithm that relies on the fixed-point iteration method to find the best estimate for latent trajectories. We apply VIND to electrophysiology, single-cell voltage and widefield optical imaging datasets with state-of-the-art results in reconstruction error. In single-cell voltage data, VIND finds a 5D latent space, with variables akin to those of Hodgkin-Huxley-like models. The quality of learned dynamics is further quantified by using it to predict future neural activity. VIND excels in this task, in some cases substantially outperforming state-of-the-art methods. </p>
-      </td>
-    </tr>
-
-    <tr>
-      <td width="25%">
-        <img src='figures/aetf_flow.gif' width="212" height="151">
-      </td>
-      <td valign="top" width="75%">
-        <p>
-    <a href="https://www.liebertpub.com/doi/pdf/10.1089/cmb.2018.0176">
-            <papertitle>Autoencoding Topographic Factors</papertitle>
-    </a><br>
-    <strong>Antonio Khalil Moretti</strong>*, 
-          Andrew Atkinson Stirn*, 
-          Gabriel Marks,   
-          Itsik Pe'er</a> <br>
-        <em>Journal of Computational Biology, 2019</em><br>
-        <a href="http://www.cs.columbia.edu/~amoretti/papers/AETF.pdf">arxiv</a>
-        /
-        <a href="https://github.com/amoretti86/AETF">code</a>
-        /
-        <a href="mal_cmb26_546.bib">bibtex</a>
-        </p>
-        <p>Topographic factor models separate a set of overlapping singals into spatially localized source functions without knowledge of the original signals or the mixing process. We propose Auto-Encoding Topographic Factors (AETF), a novel variational inference scheme that does not require sources to be held constant across locations on the lattice. Model parameters scale independently of dataset size making it possible to perform inference on temporal sequences of large 3D image matrices. AETF is evaluated on both simulations and on deep generative models of functional magnetic resonance imaging data and is shown to outperform existing Topographic factor models in reconstruction error. </p>
-      </td>
-    </tr>
- 
-
-       </table>
-
-</ul>
-</font>
-</td></tr>
-
-<tr><td>
-<br>
-<font size=4>Publications & Preprints</font><br><br>
-<font size=2.5>
-<ul style="margin-left: 30px;" style = "list-style-type:none;">
-    <li>
-  <a href="https://arxiv.org/abs/2106.00075">Variational Combinatorial Sequential Monte Carlo Methods for Bayesian Phylogenetic Inference</a>
-  <br>Moretti, A.*, Zhang, L.*, Naesseth, C., Venner, H., Blei, D., Pe'er, I.<br><em>Uncertainty in Artificial Intelligence, 2021</em><br>
-  <li>
-  <a href="http://www.cs.columbia.edu/~amoretti/papers/phylo.pdf">Variational Combinatorial Sequential Monte Carlo for Bayesian Phylogenetic Inference</a>
-  <br>Moretti, A., Zhang, L., Pe'er, I.<br><em>Machine Learning in Computational Biology, 2020</em><br>
-  <i>Selected for Oral Presentation (15% Acceptance Rate)</i></li>
-<li>
-  <a href="http://ecai2020.eu/papers/905_paper.pdf">Variational Objectives for Markovian Dynamics with Backward Simulation</a>
-  <br>Moretti, A.*, Wang, Z.*, Wu, L.*, Drori, I., Pe'er, I.
-  <br><em>European Conference on Artificial Intelligence, 2020</em></li>
-<li>
-  <a href="https://arxiv.org/abs/1811.02459">Nonlinear Evolution via Spatially-Dependent Linear Dynamics for Electrophysiology and Calcium Data</a>
-  <br>Hernandez, D., Moretti, A., Wei, Z., Saxena, S., Cunningham, J., Paninski, L.
-  <br><em>Neurons, Behavior, Data analysis and Theory, 2020</em></li>
-<li>
-  <a href = "https://arxiv.org/abs/1911.05531">Accurate Protein Structure Prediction by Embeddings and Deep Learning Representations</a>
-  <br>Drori, I., Thaker, D., Srivatsa, A., Jeong, D., Wang, Y., Nan, L., Wu, F., Leggas, D., Lei, J., Lu, W., Fu, W., Gao, Y., Karri, S., Kannan, A., Moretti, A., Keasar, C., Pe'er, I.
-  <br><em>Machine Learning in Computational Biology, 2019</em>
-</li>
-<li>
-  <a href="https://arxiv.org/abs/1909.09734">Particle Smoothing Variational Objectives</a>
-  <br>Moretti, A.*, Wang, Z.*, Wu, L.*, Drori, I., Pe'er, I.
-  <br><em>arXiv preprint arXiv:1909.09734</em></li>
-<li>
-  <a href="https://www.liebertpub.com/doi/abs/10.1089/cmb.2018.0176">Auto-Encoding Topographic Factors</a>
-  <br>Moretti, A.*, Stirn, A.*, Marks, G., Pe'er, I.
-  <br><em>Journal of Computational Biology, 2019</em></li>
-<li>
-  <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0148865">The Impact of Comprehensive Case Management on HIV Client Outcomes</a><br> Brennan-Ing M., Seidel L., Rodgers L., Ernst J., Wirth D., Tietz D., Moretti, A., Karpiak, S.<br><em> Plos One, 2016</em></li>
-</ul>
-</font>
-<!--</td></tr>
-
-
-<br>
-<font size=4>Short Papers & Workshops</font><br><br>
-<tr><td>-->
-<font size=2.5>
-<ul style="margin-left: 30px;" style = "list-style-type:none;">
-<li>
-  <a href="https://arxiv.org/abs/1910.03698">AutoML using Metadata Language Embeddings</a>
-  <br>Drori, I., Liu, L., Nian, Y., Koorathota, S., Li, J., Moretti, A., Freire, J., Udell, M.<br><em>NeurIPS Workshops, 2019</em></li>
-<li>
-  <a href="https://openreview.net/pdf?id=HJg24U8tuE">Smoothing Nonlinear Variational Objectives with Sequential Monte Carlo</a>
-  <br>Moretti, A.*, Wang, Z.*, Wu, L., Pe'er, I.<br><em>ICLR Workshops, 2019</em></li>
-<li>
-  <a href="http://cosyne.org/cosyne19/Cosyne2019_program_book.pdf">Nonlinear Variational Inference for Neural Data</a>
-  <br>Hernandez, D., Moretti, A., Wei, Z., Saxena, S., Cunningham, J., Paninski, L.<br><em>Computational and Systems Neuroscience, 2019</em></li>
-<li>
-  <a href="https://sites.google.com/view/wcb2018/accepted-papers?authuser=1">Auto-Encoding Topographic Factors</a>
-  <br>Moretti, A.*, Stirn, A.*, Pe'er, I.<br><em>ICML Workshops, 2018</em> <br><i> Selected for Oral Presentation (17% Acceptance Rate) and Best Poster Award</i>
-<li>
-  <a href="">Mining Student Ratings and Course Contents for CS Curriculum Decisions</a>
-  <br>Moretti, A., Gonzalez-Brenes, J., McKnight, K. and Salleb-Aouissi, A.<br><em>KDD Workshops, 2014</em></br><em>Spotlight Talk</em>
-</li>
-</ul>
-</font>
-</td></tr>
-
-
-<tr><td>
-<br>
-<font size=4>Lecturer</font><br><br>
-<font size=2.5>
-   <ul style="margin-left: 30px;" style="list-style-type:circle">
-    <li><a href="http://www.cs.columbia.edu/~amoretti/3203/">Discrete Mathematics: Combinatorics and Graph Theory</a><br>(Columbia University -- Fa 17)</li>
-    <li><a href="http://www.cs.columbia.edu/~amoretti/7847s17.html">Machine Learning for Statistics</a><br>(Fordham University -- Sp 16, Sp 17, Sp 18)</li>
-    <li><a href="http://www.cs.columbia.edu/~amoretti/7844.html">Statistical Methods and Computation</a><br>(Fordham University -- Fa 17)</li>
-
-<!--
-    <li><a href="http://www.cs.columbia.edu/~amoretti/3203/" STYLE="text-decoration: none"><font color = "#000000">COMS W3203  (Columbia)  &nbsp;--  Discrete Mathematics: Combinatorics and Graph Theory</a></li>
-    <li><a href="http://www.cs.columbia.edu/~amoretti/7847s17.html" STYLE="text-decoration: none"><font color = "#000000">SDGB G7847 &nbsp;&nbsp;(Fordham) &nbsp;-- Machine Learning for Statistics</a> <&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span> (<a href="http://www.cs.columbia.edu/~amoretti/7847.html" STYLE="text-decoration: none"><font color = "#000000">spring 16</a>, spring 17) </span>-> </a></li>
-    <li><a href="http://www.cs.columbia.edu/~amoretti/7844.html" STYLE="text-decoration: none"><font color = "#000000">SDGB G7844 &nbsp;&nbsp;(Fordham) &nbsp;-- Statistical Methods and Computation</a> <!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span> (<a href="http://www.cs.columbia.edu/~amoretti/7847.html" STYLE="text-decoration: none"><font color = "#000000">spring 16</a>, spring 17) </span>-> </a></li>
--->
-
-</ul>
-</font>
-</td></tr>
-
-
-
-
-
-<!--
-<tr><td>
-<br>
-<font size=4>Code</font><br><br>
-<font size=2.5>
-<ul style="margin-left: 30px;" style = "list-style-type:none;">
-    <li>
-      <a href="https://github.com/amoretti86/PSVO" STYLE="text-decoration: none"><font color = "#000000"><b>Particle Smoothing Variational Objectives</b> </a>
-    </li>
-</ul>
--->
-
-
-<tr><td>
-<br>
-<font size=4>Notes</font><br><br>
-<font size=2.5>
-<ul style="margin-left: 30px;" style = "list-style-type:none;">
-    <li>
-      <b><a href="Connecting Feynman Kac and Particle Filters.pdf" STYLE="text-decoration: none"><font color = "#000000">Feynman-Kac and Particle Filters </a></b><br>
-      </a>
-    </li>
-</ul>
-</font>
-</td></tr>
-
-
-
-</font>
-</td></tr>
-
-
-
-
-
-
-<!--
-<tr><td>
-<font size=4>Contact</font><br><br>
-<font size=2.5>
-The best way to reach me is via email at &lsaquo;initial&rsaquo;&lsaquo;lastname&rsaquo;@cs.columbia.edu<br>
-</font>
-</td></tr>
--->
-
-
-<tr><td>
-<br>
-<font size=4>Misc</font><br>
-<font size=2.5>
-<blockquote> <font size = 2.5>
-'My brothers! Far from your ancestral culture, your personality disappears along with your spirit.' <br> - Bombino
-</blockquote>
-
-<img src="img_0037.jpg" alt="tarsh1" style="width:960px;height:720px;"> <br> <br>
-<!--
-<img src="img_1121.jpg" alt="tarsh2" style="width:960px;height:720px;"> <br> <br>
--->
-<img src="caroni2.jpg" alt="caroni1" style="width:960px;height:720px;"> <br> <br>
-I love to paint. Here is my take on the legend, Robert Nesta Marley. <br> <br>
-<img src="marley2.jpg" alt="Marley" style="width:300px;height:362px;">
-<img src="IMG_1521.jpg" alt="Lady2" style="width:302px;height:401px;">
-<img src="painting2.png" alt="Lady" style="width:290px;height:348px;">
-<ul style="list-style-type: none";>
-  <li style="list-style-type: none;">
-
-</ul> <br>
-<!--
-  <a href="marley.jpg" target="_blank" STYLE="text-decoration: none">Buffalo Soldier</a>
-<ul style="list-style-type: none";>
-  <listyle="list-style-type: none;">
-<a href="painting2.png" target="_blank" STYLE="text-decoration: none"> Nightingale</a>
-</ul>
--->
-</font>
-</td></tr>
-</table>
-
-
-
-</div>
-<!--
-<center>
-<script type="text/javascript" src="//rf.revolvermaps.com/0/0/1.js?i=5f26ezuswke&amp;s=250&amp;m=6&amp;v=true&amp;r=false&amp;b=000000&amp;n=false&amp;c=ff0000" async="async"></script></center>
-<div id="footer">
---><br>
-<center><script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5s8db1zex0x&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;f=calibri&amp;l=1" async="async"></script></center>
-
-
-</div>
+    <section>
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:antoniomoretti@spelman.edu">antoniomoretti@spelman.edu</a></p>
+        <p>Office: 218 Tapely Hall</p>
+    </section>
 
 </body>
 </html>
