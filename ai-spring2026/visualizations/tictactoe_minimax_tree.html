@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe Minimax Tree</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .info {
+            text-align: center;
+            color: #888;
+            margin-bottom: 15px;
+            font-size: 12px;
+            font-style: italic;
+        }
+        
+        .controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        button:hover {
+            background: #45a049;
+        }
+        
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #333;
+        }
+        
+        #tree {
+            overflow-x: auto;
+            padding: 20px;
+        }
+        
+        .node {
+            cursor: pointer;
+        }
+        
+        .node circle {
+            stroke-width: 2px;
+            transition: all 0.3s;
+        }
+        
+        .node:hover circle {
+            stroke-width: 3px;
+            r: 28;
+        }
+        
+        .node text {
+            font-size: 12px;
+            font-weight: bold;
+            pointer-events: none;
+        }
+        
+        .link {
+            fill: none;
+            stroke: #999;
+            stroke-width: 2px;
+        }
+        
+        .board {
+            position: absolute;
+            background: white;
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1000;
+            pointer-events: none;
+        }
+        
+        .board-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 40px);
+            grid-template-rows: repeat(3, 40px);
+            gap: 3px;
+            background: #333;
+            padding: 3px;
+        }
+        
+        .board-cell {
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .board-info {
+            margin-top: 8px;
+            font-size: 12px;
+            text-align: center;
+        }
+        
+        .symmetry-label {
+            font-size: 10px;
+            fill: #666;
+            font-style: italic;
+        }
+        
+        .depth-label {
+            font-size: 11px;
+            fill: #444;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tic-Tac-Toe Minimax Game Tree</h1>
+        <div class="subtitle">With Symmetry Reduction • Hover over nodes to see board states</div>
+        <div class="info">Scroll to zoom • Drag to pan • Click nodes to expand/collapse</div>
+        <div class="info" id="nodeCount" style="font-weight: bold; color: #333;">Building tree...</div>
+        <div class="info" id="modeInfo" style="font-weight: bold; color: #4CAF50;">Mode: Symmetry Reduced</div>
+        
+        <div class="controls">
+            <button id="modeToggle" onclick="toggleTreeMode()" style="background: #FF9800; font-weight: bold;">Switch to Full Tree (No Symmetry)</button>
+            <button onclick="expandAll()">Show Full Tree</button>
+            <button onclick="collapseAll()">Collapse All</button>
+            <button onclick="expandToDepth(2)">Depth 2</button>
+            <button onclick="expandToDepth(4)">Depth 4</button>
+            <button onclick="expandToDepth(6)">Depth 6</button>
+            <button onclick="expandToDepth(9)">Depth 9 (Max)</button>
+            <button onclick="resetZoom()">Reset Zoom</button>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #64B5F6;"></div>
+                <span>X to move (Maximizer)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #EF5350;"></div>
+                <span>O to move (Minimizer)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #66BB6A;"></div>
+                <span>X wins (+1)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #FFA726;"></div>
+                <span>O wins (-1)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #BDBDBD;"></div>
+                <span>Draw (0)</span>
+            </div>
+        </div>
+        
+        <div id="tree"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script>
+        // Wait for D3 to load
+        window.addEventListener('load', function() {
+            initializeTree();
+        });
+
+        // Game logic
+        function checkWinner(board) {
+            const lines = [
+                [0,1,2], [3,4,5], [6,7,8], // rows
+                [0,3,6], [1,4,7], [2,5,8], // cols
+                [0,4,8], [2,4,6]            // diagonals
+            ];
+            
+            for (let line of lines) {
+                const [a,b,c] = line;
+                if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+                    return board[a];
+                }
+            }
+            
+            if (board.every(cell => cell !== '')) return 'draw';
+            return null;
+        }
+        
+        function minimax(board, isMaximizing) {
+            const winner = checkWinner(board);
+            if (winner === 'X') return 1;
+            if (winner === 'O') return -1;
+            if (winner === 'draw') return 0;
+            
+            const player = isMaximizing ? 'X' : 'O';
+            let bestScore = isMaximizing ? -Infinity : Infinity;
+            
+            for (let i = 0; i < 9; i++) {
+                if (board[i] === '') {
+                    board[i] = player;
+                    const score = minimax(board, !isMaximizing);
+                    board[i] = '';
+                    bestScore = isMaximizing ? Math.max(score, bestScore) : Math.min(score, bestScore);
+                }
+            }
+            
+            return bestScore;
+        }
+        
+        // Build tree with symmetry reduction
+        function buildTree(depth = 9, useSymmetry = true) {
+            const root = {
+                board: Array(9).fill(''),
+                player: 'X',
+                depth: 0,
+                score: null,
+                children: [],
+                symmetryType: 'root',
+                id: 'root'
+            };
+            
+            let nodeId = 0;
+            
+            function addChildren(node, maxDepth) {
+                if (node.depth >= maxDepth) {
+                    const winner = checkWinner(node.board);
+                    if (winner) {
+                        node.score = winner === 'X' ? 1 : winner === 'O' ? -1 : 0;
+                    }
+                    return;
+                }
+                
+                const winner = checkWinner(node.board);
+                if (winner) {
+                    node.score = winner === 'X' ? 1 : winner === 'O' ? -1 : 0;
+                    return;
+                }
+                
+                const moves = getSymmetricMoves(node.board, node.player, useSymmetry);
+                
+                for (let move of moves) {
+                    const newBoard = [...node.board];
+                    newBoard[move.position] = node.player;
+                    
+                    const child = {
+                        board: newBoard,
+                        player: node.player === 'X' ? 'O' : 'X',
+                        depth: node.depth + 1,
+                        score: null,
+                        children: [],
+                        symmetryType: move.type,
+                        move: move.position,
+                        id: `node-${++nodeId}`
+                    };
+                    
+                    addChildren(child, maxDepth);
+                    
+                    // Calculate score via minimax
+                    if (child.score === null && child.children.length > 0) {
+                        const scores = child.children.map(c => c.score);
+                        child.score = child.player === 'X' ? 
+                            Math.max(...scores) : Math.min(...scores);
+                    } else if (child.score === null) {
+                        // Terminal node without explicit winner (shouldn't happen in complete tree)
+                        const winner = checkWinner(child.board);
+                        child.score = winner === 'X' ? 1 : winner === 'O' ? -1 : 0;
+                    }
+                    
+                    node.children.push(child);
+                }
+                
+                if (node.children.length > 0 && node.score === null) {
+                    const scores = node.children.map(c => c.score);
+                    node.score = node.player === 'X' ? 
+                        Math.max(...scores) : Math.min(...scores);
+                }
+            }
+            
+            addChildren(root, depth);
+            return root;
+        }
+        
+        function getSymmetricMoves(board, player, useSymmetry = true) {
+            const empty = board.map((cell, i) => cell === '' ? i : -1).filter(i => i !== -1);
+            
+            // If not using symmetry, return all moves
+            if (!useSymmetry) {
+                return empty.map(pos => {
+                    let type = 'move';
+                    if ([0,2,6,8].includes(pos)) type = 'corner';
+                    else if ([1,3,5,7].includes(pos)) type = 'edge';
+                    else if (pos === 4) type = 'center';
+                    return { position: pos, type };
+                });
+            }
+            
+            // First move: only corner, edge, center (symmetry reduction)
+            if (board.every(cell => cell === '')) {
+                return [
+                    { position: 0, type: 'corner' },
+                    { position: 1, type: 'edge' },
+                    { position: 4, type: 'center' }
+                ];
+            }
+            
+            // For subsequent moves, use symmetry to reduce the search space
+            const uniqueMoves = [];
+            const seenBoards = new Set();
+            
+            for (let pos of empty) {
+                // Try this move
+                const testBoard = [...board];
+                testBoard[pos] = player;
+                
+                // Check if this board is equivalent to any we've seen
+                const isUnique = !hasSymmetricEquivalent(testBoard, seenBoards);
+                
+                if (isUnique) {
+                    // Add all symmetric versions of this board to seen set
+                    const symmetries = getAllSymmetries(testBoard);
+                    symmetries.forEach(sym => seenBoards.add(sym));
+                    
+                    let type = 'move';
+                    if ([0,2,6,8].includes(pos)) type = 'corner';
+                    else if ([1,3,5,7].includes(pos)) type = 'edge';
+                    else if (pos === 4) type = 'center';
+                    
+                    uniqueMoves.push({ position: pos, type });
+                }
+            }
+            
+            return uniqueMoves;
+        }
+        
+        function boardToString(board) {
+            return board.join('');
+        }
+        
+        function rotateBoard(board) {
+            // Rotate 90 degrees clockwise
+            return [
+                board[6], board[3], board[0],
+                board[7], board[4], board[1],
+                board[8], board[5], board[2]
+            ];
+        }
+        
+        function reflectBoard(board) {
+            // Reflect horizontally
+            return [
+                board[2], board[1], board[0],
+                board[5], board[4], board[3],
+                board[8], board[7], board[6]
+            ];
+        }
+        
+        function getAllSymmetries(board) {
+            const symmetries = new Set();
+            let current = [...board];
+            
+            // 4 rotations
+            for (let i = 0; i < 4; i++) {
+                symmetries.add(boardToString(current));
+                current = rotateBoard(current);
+            }
+            
+            // Reflect and 4 more rotations
+            current = reflectBoard(board);
+            for (let i = 0; i < 4; i++) {
+                symmetries.add(boardToString(current));
+                current = rotateBoard(current);
+            }
+            
+            return symmetries;
+        }
+        
+        function hasSymmetricEquivalent(board, seenBoards) {
+            const symmetries = getAllSymmetries(board);
+            for (let sym of symmetries) {
+                if (seenBoards.has(sym)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        // Visualization
+        function initializeTree() {
+            const width = 4000;
+            const height = 2000;
+            const nodeRadius = 18;
+            
+            const svg = d3.select('#tree')
+                .append('svg')
+                .attr('width', '100%')
+                .attr('height', '800px')
+                .attr('viewBox', `0 0 ${width} ${height}`)
+                .style('border', '1px solid #ddd');
+            
+            const g = svg.append('g');
+            
+            // Add zoom behavior
+            const zoom = d3.zoom()
+                .scaleExtent([0.1, 4])
+                .on('zoom', (event) => {
+                    g.attr('transform', event.transform);
+                });
+            
+            svg.call(zoom);
+            
+            let useSymmetryMode = true;
+            let treeData = buildTree(9, useSymmetryMode);
+            let expandedNodes = new Set([treeData]);
+            
+            // Count nodes and find max depth
+            function countNodes(node) {
+                let count = 1;
+                let maxDepth = node.depth;
+                if (node.children) {
+                    for (let child of node.children) {
+                        const result = countNodes(child);
+                        count += result.count;
+                        maxDepth = Math.max(maxDepth, result.maxDepth);
+                    }
+                }
+                return { count, maxDepth };
+            }
+            
+            const stats = countNodes(treeData);
+            console.log('Total nodes in tree:', stats.count);
+            console.log('Max depth reached:', stats.maxDepth);
+            
+            function updateNodeCountDisplay() {
+                const modeText = useSymmetryMode ? 'Symmetry Reduced' : 'Full Tree (No Symmetry)';
+                document.getElementById('nodeCount').textContent = `${modeText}: ${stats.count} nodes, max depth: ${stats.maxDepth}`;
+                document.getElementById('modeInfo').textContent = `Mode: ${modeText}`;
+                document.getElementById('modeInfo').style.color = useSymmetryMode ? '#4CAF50' : '#FF9800';
+            }
+            
+            updateNodeCountDisplay();
+            
+            window.toggleTreeMode = function() {
+                useSymmetryMode = !useSymmetryMode;
+                const button = document.getElementById('modeToggle');
+                
+                if (useSymmetryMode) {
+                    button.textContent = 'Switch to Full Tree (No Symmetry)';
+                    button.style.background = '#FF9800';
+                    document.getElementById('modeInfo').textContent = 'Building symmetry-reduced tree...';
+                } else {
+                    button.textContent = 'Switch to Symmetry-Reduced Tree';
+                    button.style.background = '#4CAF50';
+                    document.getElementById('modeInfo').textContent = 'Building full tree (this may take a moment)...';
+                }
+                
+                // Rebuild tree with new mode
+                treeData = buildTree(9, useSymmetryMode);
+                expandedNodes.clear();
+                expandedNodes.add(treeData);
+                
+                // Update stats
+                const newStats = countNodes(treeData);
+                stats.count = newStats.count;
+                stats.maxDepth = newStats.maxDepth;
+                
+                console.log(`Switched to ${useSymmetryMode ? 'symmetry' : 'full'} mode:`, stats.count, 'nodes');
+                updateNodeCountDisplay();
+                
+                // Reset view and expand to depth 2
+                expandToDepth(2);
+                svg.transition().duration(750).call(zoom.transform, d3.zoomIdentity);
+            };
+            
+            function update() {
+                const hierarchy = d3.hierarchy(treeData, d => 
+                    expandedNodes.has(d) ? d.children : []
+                );
+                
+                const treeLayout = d3.tree()
+                    .size([width - 100, height - 100])
+                    .separation((a, b) => {
+                        // Tighter separation for the massive tree
+                        if (a.parent === b.parent) {
+                            return 0.5;
+                        }
+                        return 0.8;
+                    });
+                
+                treeLayout(hierarchy);
+                
+                // Adjust positions with margins
+                hierarchy.each(d => {
+                    d.x += 50;
+                    d.y += 50;
+                });
+                
+                // Links
+                const links = g.selectAll('.link')
+                    .data(hierarchy.links(), d => d.target.data.id);
+                
+                links.exit().remove();
+                
+                links.enter()
+                    .append('path')
+                    .attr('class', 'link')
+                    .merge(links)
+                    .attr('d', d3.linkVertical()
+                        .x(d => d.x)
+                        .y(d => d.y));
+                
+                // Nodes
+                const nodes = g.selectAll('.node')
+                    .data(hierarchy.descendants(), d => d.data.id);
+                
+                nodes.exit().remove();
+                
+                const nodeEnter = nodes.enter()
+                    .append('g')
+                    .attr('class', 'node')
+                    .attr('transform', d => `translate(${d.x},${d.y})`)
+                    .on('click', toggleNode)
+                    .on('mouseenter', showBoard)
+                    .on('mouseleave', hideBoard);
+                
+                nodeEnter.append('circle')
+                    .attr('r', nodeRadius);
+                
+                nodeEnter.append('text')
+                    .attr('dy', 5)
+                    .attr('text-anchor', 'middle')
+                    .style('font-size', '11px');
+                
+                nodeEnter.append('text')
+                    .attr('class', 'symmetry-label')
+                    .attr('dy', 35)
+                    .attr('text-anchor', 'middle');
+                
+                const nodeUpdate = nodeEnter.merge(nodes);
+                
+                nodeUpdate.attr('transform', d => `translate(${d.x},${d.y})`);
+                
+                nodeUpdate.select('circle')
+                    .attr('fill', d => getNodeColor(d.data))
+                    .attr('stroke', d => d.data.player === 'X' ? '#1976D2' : '#C62828')
+                    .attr('r', nodeRadius);
+                
+                nodeUpdate.select('text')
+                    .text(d => {
+                        if (d.data.score !== null) return d.data.score > 0 ? '+1' : d.data.score < 0 ? '-1' : '0';
+                        return d.data.player;
+                    });
+                
+                nodeUpdate.select('.symmetry-label')
+                    .text(d => d.data.symmetryType !== 'root' && d.depth <= 2 ? d.data.symmetryType : '');
+            }
+        
+        function getNodeColor(data) {
+            const winner = checkWinner(data.board);
+            if (winner === 'X') return '#66BB6A';
+            if (winner === 'O') return '#FFA726';
+            if (winner === 'draw') return '#BDBDBD';
+            return data.player === 'X' ? '#64B5F6' : '#EF5350';
+        }
+        
+        function toggleNode(event, d) {
+            event.stopPropagation();
+            if (d.data.children && d.data.children.length > 0) {
+                if (expandedNodes.has(d.data)) {
+                    expandedNodes.delete(d.data);
+                } else {
+                    expandedNodes.add(d.data);
+                }
+                update();
+            }
+        }
+        
+        function showBoard(event, d) {
+            const board = d3.select('body')
+                .append('div')
+                .attr('class', 'board')
+                .style('left', (event.pageX + 15) + 'px')
+                .style('top', (event.pageY - 80) + 'px');
+            
+            const grid = board.append('div')
+                .attr('class', 'board-grid');
+            
+            for (let i = 0; i < 9; i++) {
+                grid.append('div')
+                    .attr('class', 'board-cell')
+                    .style('color', d.data.board[i] === 'X' ? '#1976D2' : '#C62828')
+                    .text(d.data.board[i]);
+            }
+            
+            board.append('div')
+                .attr('class', 'board-info')
+                .html(`Depth: ${d.depth} | Player: ${d.data.player} | Score: ${d.data.score ?? '?'}`);
+        }
+        
+        function hideBoard() {
+            d3.selectAll('.board').remove();
+        }
+        
+        function expandAll() {
+            function addAll(node) {
+                expandedNodes.add(node);
+                if (node.children) {
+                    node.children.forEach(addAll);
+                }
+            }
+            addAll(treeData);
+            update();
+        }
+        
+        function collapseAll() {
+            expandedNodes.clear();
+            expandedNodes.add(treeData);
+            update();
+        }
+        
+        function expandToDepth(depth) {
+            expandedNodes.clear();
+            function addToDepth(node, currentDepth) {
+                if (currentDepth <= depth) {
+                    expandedNodes.add(node);
+                    if (node.children) {
+                        node.children.forEach(child => addToDepth(child, currentDepth + 1));
+                    }
+                }
+            }
+            addToDepth(treeData, 0);
+            update();
+        }
+        
+        // Make functions globally accessible
+        window.expandAll = expandAll;
+        window.collapseAll = collapseAll;
+        window.expandToDepth = expandToDepth;
+        window.resetZoom = function() {
+            svg.transition()
+                .duration(750)
+                .call(zoom.transform, d3.zoomIdentity);
+        };
+        
+        // Initial render
+        expandToDepth(2);
+        }
+    </script>
+</body>
+</html>

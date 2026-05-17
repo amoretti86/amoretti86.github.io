@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCIS 432: Artificial Intelligence</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body { max-width: 900px; }
+
+        .back-link { margin-bottom: 1.5rem; font-size: 0.9rem; }
+
+        .course-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.3rem 2rem;
+            padding: 1rem 0;
+            border-top: 1px solid #e5e5e5;
+            border-bottom: 1px solid #e5e5e5;
+            margin: 1.25rem 0 1.5rem;
+        }
+        .course-meta p { margin: 0; font-size: 0.9rem; color: #555; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+            margin-top: 0.75rem;
+        }
+        th {
+            text-align: left;
+            padding: 0.6rem 0.75rem;
+            font-weight: 600;
+            color: #222;
+            border-bottom: 2px solid #333;
+            background: none;
+        }
+        td {
+            padding: 0.55rem 0.75rem;
+            vertical-align: top;
+            border-bottom: 1px solid #f0f0f0;
+            color: #444;
+        }
+        td.dates { width: 5.5rem; color: #aaa; font-size: 0.8rem; font-weight: 600; padding-top: 0.65rem; }
+        td.reading { width: 6rem; font-size: 0.8rem; color: #888; }
+        td.assignment { width: 11rem; font-size: 0.8rem; }
+        td.assignment a { display: block; white-space: nowrap; margin-bottom: 0.15rem; }
+
+        .materials a { display: inline-block; margin-right: 0.4rem; white-space: nowrap; font-size: 0.85rem; }
+        .note { font-size: 0.8rem; color: #999; font-style: italic; }
+
+        .hw-list { list-style: none; padding-left: 0; }
+        .hw-list li { margin-bottom: 0.5rem; color: #555; font-size: 0.95rem; }
+        .hw-list a { margin-left: 0.4rem; font-size: 0.875rem; }
+    </style>
+</head>
+<body>
+
+    <p class="back-link"><a href="../index.html">← Antonio Moretti</a></p>
+
+    <header style="padding: 0; background: none;">
+        <div class="header-content">
+            <h1 style="margin: 0 0 0.25rem 0; font-size: 1.5rem;">SCIS 432: Artificial Intelligence</h1>
+            <p style="color: #555; margin: 0;">Spelman College &mdash; Spring 2026</p>
+        </div>
+    </header>
+
+    <hr>
+
+    <div class="course-meta">
+        <p><strong>Instructor:</strong> <a href="mailto:antoniomoretti@spelman.edu">Antonio Khalil Moretti</a></p>
+        <p><strong>Meetings:</strong> T/Th 1:00&ndash;2:15 PM, Tapley Hall 223</p>
+        <p><strong>Office Hours:</strong> Tue 11 AM&ndash;12 PM, Tapley Hall 218</p>
+        <p><strong>Syllabus:</strong> <a href="Syllabus.pdf">SCIS 432 Syllabus</a></p>
+        <p><strong>Textbook:</strong> <a href="https://aima.cs.berkeley.edu/">Russell &amp; Norvig, Artificial Intelligence: A Modern Approach (4th ed.)</a></p>
+        <p><strong>Prerequisites:</strong> Data Structures &amp; Algorithms, Python</p>
+    </div>
+
+    <section>
+        <p>A comprehensive introduction to artificial intelligence, covering classical AI techniques and modern machine learning. Topics include search algorithms, game playing, constraint satisfaction, supervised learning, neural networks, and an introduction to deep learning and generative AI.</p>
+    </section>
+
+    <section>
+        <h2>Schedule</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th class="dates">Dates</th>
+                    <th>Topics</th>
+                    <th class="reading">AIMA</th>
+                    <th>Materials</th>
+                    <th>Assignment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="dates">1/15</td>
+                    <td>Course Overview &amp; Introduction to AI</td>
+                    <td></td>
+                    <td class="materials"><a href="slides/01-introduction.pdf">Slides</a></td>
+                    <td class="assignment"></td>
+                </tr>
+                <tr>
+                    <td class="dates">1/20–1/22</td>
+                    <td>Uninformed Search<br>
+                        <span class="note">BFS, DFS, iterative deepening (IDDFS), search on maze problems</span></td>
+                    <td>Ch. 3.1–3.4</td>
+                    <td class="materials"><a href="slides/02-uninformed-search.pdf">Slides</a></td>
+                    <td class="assignment"><a href="https://colab.research.google.com/drive/1VNQRaJq0aBFFDAGFLP5eZtq51WEjAxge">HW1: Intro &amp; Search</a></td>
+                </tr>
+                <tr>
+                    <td class="dates">1/27</td>
+                    <td>Informed Search<br>
+                        <span class="note">Greedy best-first search, A*, admissible &amp; consistent heuristics, IDA*, SMA*</span></td>
+                    <td>Ch. 3.5</td>
+                    <td class="materials"><a href="slides/03-informed-search.pdf">Slides</a></td>
+                    <td class="assignment"><a href="https://colab.research.google.com/drive/1M9bE98rotHv5b83j3RyMniAD9PmjVRt-">HW2: A* on 8-Puzzle</a></td>
+                </tr>
+                <tr>
+                    <td class="dates">1/29</td>
+                    <td>Game Playing &amp; Adversarial Search<br>
+                        <span class="note">Game trees, minimax algorithm, alpha-beta pruning</span></td>
+                    <td>Ch. 5.1–5.3</td>
+                    <td class="materials">
+                        <a href="slides/04-adversarial-search.pdf">Slides</a>
+                        <a href="visualizations/tictactoe_minimax_tree.html">Minimax Viz</a>
+                    </td>
+                    <td class="assignment"><a href="https://colab.research.google.com/drive/1Nwk_IlqIXFJi-V2JtyMsXQxdmP0Hvfig">HW3: Minimax &amp; Alpha-Beta</a></td>
+                </tr>
+                <tr>
+                    <td class="dates">2/3–2/5</td>
+                    <td>Stochastic Games &amp; Monte Carlo Tree Search<br>
+                        <span class="note">Probability basics, expectimax, explore/exploit tradeoffs, MCTS</span></td>
+                    <td>Ch. 5.5</td>
+                    <td class="materials">
+                        <a href="slides/05-stochastic-games.pdf">Slides</a>
+                        <a href="visualizations/2048_expectimax.html">2048 Expectimax</a>
+                        <a href="visualizations/2048_expectimax_autoplay.html">Autoplay</a>
+                    </td>
+                    <td class="assignment"></td>
+                </tr>
+                <tr>
+                    <td class="dates">2/10</td>
+                    <td>Constraint Satisfaction Problems<br>
+                        <span class="note">Backtracking, variable &amp; value ordering, constraint propagation, arc consistency (AC-3)</span></td>
+                    <td>Ch. 6</td>
+                    <td class="materials"><a href="slides/06-constraint-satisfaction.pdf">Slides</a></td>
+                    <td class="assignment"><a href="https://colab.research.google.com/drive/1FhCL5JB08h2t3UT_XJydcGiZoAfpyvJY">HW4: CSP Sudoku</a></td>
+                </tr>
+                <tr>
+                    <td class="dates">2/12–2/19</td>
+                    <td>Introduction to Machine Learning &amp; Linear Regression<br>
+                        <span class="note">ML fundamentals, linear regression, linear algebra review, normal equation</span></td>
+                    <td>Ch. 18</td>
+                    <td class="materials"><a href="slides/07-intro-ml-linear-regression.pdf">Slides</a></td>
+                    <td class="assignment"><a href="https://colab.research.google.com/drive/1--ETKKTfiaU7C1r6Eg9QSdbyBZNYYEcr">HW5: Linear Regression</a></td>
+                </tr>
+                <tr>
+                    <td class="dates">2/24–3/3</td>
+                    <td>Cross-Validation &amp; Gradient Descent<br>
+                        <span class="note">Train-test split, polynomial regression, systems of equations, gradient descent</span></td>
+                    <td>Ch. 18</td>
+                    <td class="materials"><a href="slides/08-cross-validation-gradient-descent.pdf">Slides</a></td>
+                    <td class="assignment"></td>
+                </tr>
+                <tr>
+                    <td class="dates">3/17–3/26</td>
+                    <td>Classification &amp; Logistic Regression<br>
+                        <span class="note">Binary classification, logistic regression, decision boundaries</span></td>
+                    <td>Ch. 18</td>
+                    <td class="materials"><a href="slides/09-classification-logistic-regression.pdf">Slides</a></td>
+                    <td class="assignment"><a href="https://colab.research.google.com/drive/1AO2z4oEQXSJ2NbtkcyG5n4-dK1xVflaB">HW6: Logistic Regression</a></td>
+                </tr>
+                <tr>
+                    <td class="dates">3/31–4/2</td>
+                    <td>Logistic Regression Evaluation<br>
+                        <span class="note">Maximum likelihood estimation, precision, recall, F1, AUC</span></td>
+                    <td></td>
+                    <td class="materials"><a href="slides/10-logistic-regression-evaluation.pdf">Slides</a></td>
+                    <td class="assignment"></td>
+                </tr>
+                <tr>
+                    <td class="dates">4/7–4/14</td>
+                    <td>Project Presentations</td>
+                    <td></td>
+                    <td class="materials"><a href="assignments/project-description.pdf">Project Description</a></td>
+                    <td class="assignment"></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Assignments</h2>
+        <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.75rem;">Assignments are Google Colab notebooks. To work on them, open the link and go to <strong>File &rarr; Save a copy in Drive</strong>.</p>
+        <ul class="hw-list">
+            <li>Homework 1 &mdash; Introduction to AI &amp; Search <a href="https://colab.research.google.com/drive/1VNQRaJq0aBFFDAGFLP5eZtq51WEjAxge">[Colab]</a></li>
+            <li>Homework 2 &mdash; A* on the 8-Puzzle <a href="https://colab.research.google.com/drive/1M9bE98rotHv5b83j3RyMniAD9PmjVRt-">[Colab]</a></li>
+            <li>Homework 3 &mdash; Minimax with Alpha-Beta Pruning <a href="https://colab.research.google.com/drive/1Nwk_IlqIXFJi-V2JtyMsXQxdmP0Hvfig">[Colab]</a></li>
+            <li>Homework 4 &mdash; CSP: Sudoku with AC-3 &amp; Backtracking <a href="https://colab.research.google.com/drive/1FhCL5JB08h2t3UT_XJydcGiZoAfpyvJY">[Colab]</a></li>
+            <li>Homework 5 &mdash; Linear Regression <a href="https://colab.research.google.com/drive/1--ETKKTfiaU7C1r6Eg9QSdbyBZNYYEcr">[Colab]</a></li>
+            <li>Homework 6 &mdash; Logistic Regression <a href="https://colab.research.google.com/drive/1AO2z4oEQXSJ2NbtkcyG5n4-dK1xVflaB">[Colab]</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Project</h2>
+        <p style="color: #555;"><a href="assignments/project-description.pdf">Project Description</a></p>
+    </section>
+
+</body>
+</html>

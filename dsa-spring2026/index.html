@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCIS 313: Data Structures and Algorithm Analysis</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body { max-width: 900px; }
+
+        .back-link { margin-bottom: 1.5rem; font-size: 0.9rem; }
+
+        .course-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.3rem 2rem;
+            padding: 1rem 0;
+            border-top: 1px solid #e5e5e5;
+            border-bottom: 1px solid #e5e5e5;
+            margin: 1.25rem 0 1.5rem;
+        }
+        .course-meta p { margin: 0; font-size: 0.9rem; color: #555; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+            margin-top: 0.75rem;
+        }
+        th {
+            text-align: left;
+            padding: 0.6rem 0.75rem;
+            font-weight: 600;
+            color: #222;
+            border-bottom: 2px solid #333;
+            background: none;
+        }
+        td {
+            padding: 0.55rem 0.75rem;
+            vertical-align: top;
+            border-bottom: 1px solid #f0f0f0;
+            color: #444;
+        }
+        td.week { width: 3.5rem; text-align: center; color: #aaa; font-size: 0.8rem; font-weight: 600; }
+        td.reading { width: 9rem; font-size: 0.8rem; color: #888; }
+        td.assignment { width: 11rem; font-size: 0.8rem; }
+        td.assignment a { display: block; white-space: nowrap; margin-bottom: 0.15rem; }
+
+        .materials a { display: inline-block; margin-right: 0.4rem; white-space: nowrap; font-size: 0.85rem; }
+        .note { font-size: 0.8rem; color: #999; font-style: italic; }
+
+        .hw-list { list-style: none; padding-left: 0; }
+        .hw-list li { margin-bottom: 0.5rem; color: #555; font-size: 0.95rem; }
+        .hw-list a { margin-left: 0.4rem; font-size: 0.875rem; }
+    </style>
+</head>
+<body>
+
+    <p class="back-link"><a href="../index.html">← Antonio Moretti</a></p>
+
+    <header style="padding: 0; background: none;">
+        <div class="header-content">
+            <h1 style="margin: 0 0 0.25rem 0; font-size: 1.5rem;">SCIS 313: Data Structures and Algorithm Analysis</h1>
+            <p style="color: #555; margin: 0;">Spelman College &mdash; Spring 2026</p>
+        </div>
+    </header>
+
+    <hr>
+
+    <div class="course-meta">
+        <p><strong>Instructor:</strong> <a href="mailto:antoniomoretti@spelman.edu">Antonio Khalil Moretti</a></p>
+        <p><strong>Meetings:</strong> T/Th 9:25&ndash;10:40 AM, Tapley Hall 227</p>
+        <p><strong>Office Hours:</strong> T/Th, 218 Tapely Hall</p>
+        <p><strong>Syllabus:</strong> <a href="Syllabus.pdf">SCIS 313 Syllabus</a></p>
+        <p><strong>Textbook:</strong> <a href="https://www.uoitc.edu.iq/images/documents/informatics-institute/Competitive_exam/DataStructures.pdf">Weiss, Data Structures and Algorithm Analysis in C++ (4th ed.)</a></p>
+        <p><strong>Reference:</strong> <a href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/">CLRS, Introduction to Algorithms (4th ed.)</a></p>
+    </div>
+
+    <section>
+        <p>This course builds on the first data structures course, focusing on algorithm analysis, advanced data structures, and core algorithm design paradigms. We emphasize rigorous complexity analysis while implementing concepts in C++. Topics include asymptotic notation, balanced trees, graphs, greedy algorithms, dynamic programming, and an introduction to complexity theory.</p>
+    </section>
+
+    <section>
+        <h2>Weekly Schedule</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th class="week">Week</th>
+                    <th>Topics</th>
+                    <th class="reading">Weiss / CLRS</th>
+                    <th>Materials</th>
+                    <th>Assignment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="week">1</td>
+                    <td>Course Overview</td>
+                    <td>Ch. 1 / Ch. 1</td>
+                    <td class="materials"><a href="slides/01-introduction.pdf">Slides</a></td>
+                    <td class="assignment"></td>
+                </tr>
+                <tr>
+                    <td class="week">2</td>
+                    <td>Empirical Analysis &amp; Timing Code<br>
+                        <span class="note">Why analysis matters, timing experiments, growth rates</span></td>
+                    <td>Ch. 2.1&ndash;2.3 / Ch. 2</td>
+                    <td class="materials"><a href="slides/02-asymptotic-analysis-timing.pdf">Slides</a></td>
+                    <td class="assignment"><a href="assignments/hw1-growth-rates.pdf">HW1: Growth Rates</a></td>
+                </tr>
+                <tr>
+                    <td class="week">2</td>
+                    <td>Big-O Notation<br>
+                        <span class="note">Asymptotic notation (O, &Omega;, &Theta;), formal definitions, proving bounds</span></td>
+                    <td>Ch. 2.4 / Ch. 3</td>
+                    <td class="materials"><a href="slides/03-big-o-notation.pdf">Slides</a></td>
+                    <td class="assignment"><a href="assignments/hw2-asymptotic-analysis.pdf">HW2: Asymptotic Analysis</a></td>
+                </tr>
+                <tr>
+                    <td class="week">3</td>
+                    <td>Analyzing Iterative Code<br>
+                        <span class="note">Loops, nested loops, common patterns</span></td>
+                    <td>Ch. 2.4 / Ch. 2&ndash;3</td>
+                    <td class="materials">
+                        <a href="slides/04-analyzing-iterative-code.pdf">Slides</a>
+                        <a href="slides/04-analyzing-iterative-code-practice.pdf">Practice</a>
+                    </td>
+                    <td class="assignment">
+                        <a href="assignments/hw3-code-complexity.pdf">HW3: Code Complexity</a>
+                        <a href="assignments/hw4-analyzing-code.pdf">HW4: Analyzing Code</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="week">4</td>
+                    <td>Mathematical Foundations<br>
+                        <span class="note">Logarithms, exponents, summations, proof techniques</span></td>
+                    <td>Ch. 1.4&ndash;1.7, App. / Ch. A</td>
+                    <td class="materials"><a href="slides/05-mathematical-foundations.pdf">Slides</a></td>
+                    <td class="assignment"><a href="assignments/hw5-induction.pdf">HW5: Proof by Induction</a></td>
+                </tr>
+                <tr>
+                    <td class="week">5</td>
+                    <td>Divide and Conquer, Recursion &amp; Recurrences<br>
+                        <span class="note">Recursive algorithms, Three-Case Recurrence Theorem, unrolling</span></td>
+                    <td>Ch. 2.4 / Ch. 4</td>
+                    <td class="materials">
+                        <a href="slides/06-recursion-recurrences.pdf">Slides</a>
+                        <a href="slides/06b-strassens-matrix-multiplication.pdf">Strassen's Algorithm</a>
+                    </td>
+                    <td class="assignment"><a href="assignments/hw6-recurrences.pdf">HW6: Recurrences</a> <a href="assignments/hw6-solutions.pdf">[Sol]</a></td>
+                </tr>
+                <tr>
+                    <td class="week">6</td>
+                    <td>Midterm Review</td>
+                    <td></td>
+                    <td class="materials">
+                        <a href="exams/practice-midterm.pdf">Practice Midterm</a>
+                        <a href="exams/practice-midterm-solutions.pdf">Solutions</a>
+                        <a href="exams/exam1-additional-practice.pdf">Extra Practice</a>
+                        <a href="exams/exam1-additional-practice-solutions.pdf">Solutions</a>
+                    </td>
+                    <td class="assignment"></td>
+                </tr>
+                <tr>
+                    <td class="week">7</td>
+                    <td>Searching &amp; Sorting<br>
+                        <span class="note">Binary search, merge sort, quick sort, complexity analysis</span></td>
+                    <td>Ch. 7 / Ch. 6&ndash;7</td>
+                    <td class="materials"><a href="slides/07-searching-sorting.pdf">Slides</a></td>
+                    <td class="assignment"></td>
+                </tr>
+                <tr>
+                    <td class="week">8</td>
+                    <td>Data Structures Review<br>
+                        <span class="note">Arrays, lists, stacks, queues, trees, heaps, hash tables</span></td>
+                    <td>Ch. 3&ndash;5 / Ch. 10&ndash;11</td>
+                    <td class="materials">
+                        <a href="slides/08-data-structures-review.pdf">Slides</a>
+                        <a href="slides/08-applied-dsa-problems.pdf">Applied Problems</a>
+                    </td>
+                    <td class="assignment"><a href="assignments/hw7-data-structures.pdf">HW7: Data Structures</a> <a href="assignments/hw7-solutions.pdf">[Sol]</a></td>
+                </tr>
+                <tr>
+                    <td class="week">9</td>
+                    <td>Amortized Analysis<br>
+                        <span class="note">Dynamic arrays, aggregate method, accounting &amp; potential methods</span></td>
+                    <td>Ch. 3.5 / Ch. 17</td>
+                    <td class="materials"><a href="slides/09-amortized-analysis.pdf">Slides</a></td>
+                    <td class="assignment"></td>
+                </tr>
+                <tr>
+                    <td class="week">10</td>
+                    <td>Balanced Trees (AVL)<br>
+                        <span class="note">Why balancing matters, rotations (LL, RR, LR, RL), O(log n) guarantee</span></td>
+                    <td>Ch. 4.4 / Ch. 13</td>
+                    <td class="materials"><a href="slides/10-balanced-avl-trees.pdf">Slides</a></td>
+                    <td class="assignment"></td>
+                </tr>
+                <tr>
+                    <td class="week">11</td>
+                    <td>Graphs<br>
+                        <span class="note">Representations (matrix vs. list), BFS &amp; DFS, applications</span></td>
+                    <td>Ch. 9 / Ch. 20&ndash;22</td>
+                    <td class="materials"><a href="slides/11-graphs.pdf">Slides</a></td>
+                    <td class="assignment"></td>
+                </tr>
+                <tr>
+                    <td class="week">12&ndash;13</td>
+                    <td>Project Presentations</td>
+                    <td></td>
+                    <td class="materials">
+                        <a href="https://en.wikipedia.org/wiki/Stern%E2%80%93Brocot_tree">Stern-Brocot Tree</a>
+                        <a href="https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)">Three-Case Recurrence</a>
+                        <a href="https://en.wikipedia.org/wiki/Quicksort#Analysis_of_randomized_quicksort">Quicksort Average Case</a>
+                        <a href="https://en.wikipedia.org/wiki/Comparison_sort">&Omega;(n log n) Lower Bound</a>
+                        <a href="https://en.wikipedia.org/wiki/Inversion_(discrete_mathematics)">Counting Inversions</a>
+                        <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm">Euclid's Algorithm &amp; GCD</a>
+                    </td>
+                    <td class="assignment"></td>
+                </tr>
+                <tr>
+                    <td class="week">14</td>
+                    <td>Greedy Algorithms &amp; Dynamic Programming</td>
+                    <td></td>
+                    <td class="materials"><a href="slides/12-greedy-dp.pdf">Slides</a></td>
+                    <td class="assignment"></td>
+                </tr>
+                <tr>
+                    <td class="week">15</td>
+                    <td>Complexity Theory<br>
+                        <span class="note">Problem classes (P, NP), NP-completeness, decidability overview</span></td>
+                    <td>Ch. 9.7 / Ch. 34</td>
+                    <td class="materials"><a href="slides/14-complexity-theory.pdf">Slides</a></td>
+                    <td class="assignment"></td>
+                </tr>
+                <tr>
+                    <td class="week">15</td>
+                    <td>Review &amp; Integration</td>
+                    <td></td>
+                    <td class="materials">
+                        <a href="exams/practice-final.pdf">Practice Final</a>
+                        <a href="exams/practice-final-solutions.pdf">Solutions</a>
+                        <a href="exams/practice-final-extra.pdf">Extra Practice</a>
+                        <a href="exams/practice-final-extra-solutions.pdf">Solutions</a>
+                    </td>
+                    <td class="assignment"></td>
+                </tr>
+                <tr>
+                    <td class="week">16</td>
+                    <td>Final Exam</td>
+                    <td></td>
+                    <td></td>
+                    <td class="assignment"></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Course Notes</h2>
+        <ul style="list-style: disc; padding-left: 1.5rem; color: #555;">
+            <li>The best way to do well is to attend. We build concepts week by week.</li>
+            <li>Start assignments early &mdash; this material is abstract and takes time to sink in.</li>
+            <li>Collaborate on ideas, but write your own code and solutions.</li>
+        </ul>
+    </section>
+
+</body>
+</html>
